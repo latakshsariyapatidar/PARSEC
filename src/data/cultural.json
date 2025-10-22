@@ -1,0 +1,53 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "name": "ZABAAN SAMBHALKE",
+      "date": "01",
+      "month": "FEB",
+      "location": "F-600, CLT, IIT-Dh",
+      "timing": "5:00 PM Onwards",
+      "image": "/Images/Cultural/standup-for-site.png",
+      "registrationLink": "https://forms.gle/cm6M3zZFAVxjXH9E6",
+      "buttonText": "Reserve your Seat!",
+      "borderColor": "border-blue-500",
+      "textColor": "text-blue-500",
+      "gradientFrom": "from-blue-500",
+      "gradientTo": "to-cyan-400",
+      "times": []
+    },
+    {
+      "id": 2,
+      "name": "BINARY BEATS",
+      "date": "02",
+      "month": "FEB",
+      "location": "Helipad, IIT-Dh",
+      "timing": "",
+      "image": "/Images/Cultural/BinaryBeatsPoster.png",
+      "registrationLink": "https://forms.gle/rnbBspnpU5SLCatV7",
+      "buttonText": "Get Passes",
+      "borderColor": "border-blue-500",
+      "textColor": "text-blue-500",
+      "gradientFrom": "from-blue-500",
+      "gradientTo": "to-cyan-400",
+      "times": [
+        {
+          "event": "Food Court",
+          "time": "2:00 PM Onwards"
+        },
+        {
+          "event": "Red Alert - Band",
+          "time": "5:00 PM Onwards"
+        },
+        {
+          "event": "DJ",
+          "time": "6:00 PM Onwards"
+        }
+      ]
+    }
+  ],
+  "note": {
+    "visible": false,
+    "text": "The above booking methods are applicable only for non IIT-Dh students."
+  }
+}

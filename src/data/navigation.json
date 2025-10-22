@@ -1,0 +1,30 @@
+{
+  "navigation": [
+    {
+      "id": "home",
+      "label": "Home",
+      "path": "/home"
+    },
+    {
+      "id": "events",
+      "label": "Events",
+      "path": "/events"
+    },
+    {
+      "id": "schedule",
+      "label": "Schedule",
+      "path": "/schedule"
+    },
+    {
+      "id": "team",
+      "label": "Team",
+      "path": "/team"
+    },
+    {
+      "id": "cultural",
+      "label": "Cultural",
+      "path": "/cultural"
+    }
+  ],
+  "mobileCulturalLabel": "Cultural Events"
+}

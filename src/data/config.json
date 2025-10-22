@@ -1,0 +1,90 @@
+{
+  "siteName": "Parsec 6.0",
+  "tagline": "Annual techfest, IIT Dharwad",
+  "eventDate": "2026-01-22T00:00:00",
+  "eventDateDisplay": "22nd Jan - 2nd Feb, 2026",
+  "hero": {
+    "title": "Parsec 6.0",
+    "subtitle": "Annual techfest,",
+    "institution": "IIT Dharwad",
+    "dates": "22nd Jan - 25th Feb, 2026"
+  },
+  "about": {
+    "intro": "Witness the collision of genius minds and cutting-edge technology at IIT Dharwad's most electrifying Technical Fest - Parsec 6.0, a rendezvous with the future! Get ready to dive into the sea of circuits & algorithms, machines & robots, bytes and bits, zeroes & ones. Let your imagination and innovation take flight in this celebration of brilliance and creativity.",
+    "description": "Parsec offers an incredible stage for emerging technologists to display their expertise and bring innovative ideas to life. Packed with events, competitions, workshops, and keynote sessions, it seeks to ignite a passion for technology and business in the brightest minds across the nation. Beyond the tech buzz, Parsec creates a vibrant experience with engaging cultural activities. Join this one-of-a-kind technocultural fest to explore, innovate, and have a fantastic time!"
+  },
+  "sponsors": {
+    "title": {
+      "name": "Title Sponsor",
+      "sponsors": [
+        {
+          "name": "Title Sponsor",
+          "logo": "/Images/sponsors/Title_sponser.jpg",
+          "width": "max-w-[500px]",
+          "url": ""
+        }
+      ]
+    },
+    "silver": {
+      "name": "Silver Sponsors",
+      "sponsors": [
+        {
+          "name": "NT",
+          "logo": "/Images/sponsors/NT LOGO.png",
+          "width": "max-w-[300px]",
+          "url": ""
+        },
+        {
+          "name": "Edge",
+          "logo": "/Images/sponsors/Edge Vertical Logo.png",
+          "width": "max-w-[300px]",
+          "url": ""
+        }
+      ]
+    },
+    "bronze": {
+      "name": "Bronze Sponsor",
+      "sponsors": [
+        {
+          "name": "CloudDefense",
+          "logo": "/Images/sponsors/CloudDefenseLogo.png",
+          "width": "max-w-[300px]",
+          "url": ""
+        }
+      ]
+    }
+  },
+  "features": [
+    {
+      "title": "Experience",
+      "description": "Participate in events designed to bring out the best in you",
+      "color": "blue",
+      "bgClass": "bg-blue-600",
+      "shadowClass": "border-white"
+    },
+    {
+      "title": "Networking",
+      "description": "Connect with and exchange ideas with participants and also the tech speakers",
+      "color": "cyan",
+      "bgClass": "bg-cyan-500/80",
+      "shadowClass": "shadow-cyan-glow"
+    },
+    {
+      "title": "Goodies",
+      "description": "Each participant gets goodies! If you manage to win an event, you can get even better ones!",
+      "color": "indigo",
+      "bgClass": "bg-indigo-600/80",
+      "shadowClass": "shadow-indigo-glow"
+    }
+  ],
+  "socialLinks": {
+    "instagram": "https://www.instagram.com/parsec.iitdh/",
+    "linkedin": "https://www.linkedin.com/company/parsec-iitdh/",
+    "twitter": "https://twitter.com/parsec_iitdh",
+    "youtube": "https://www.youtube.com/@parsec_iitdh"
+  },
+  "contact": {
+    "email": "parsec@iitdh.ac.in",
+    "phone": "+91 XXXXX XXXXX"
+  }
+}
