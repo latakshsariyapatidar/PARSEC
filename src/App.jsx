@@ -6,7 +6,7 @@ function App() {
   const [showContent, setShowContent] = useState(false)
 
   useEffect(() => {
-    document.title = "Parsec 2025"
+    document.title = "Parsec 2026"
     
     // Automatically start the morph after a short delay
     setTimeout(() => {
