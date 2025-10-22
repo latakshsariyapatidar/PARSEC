@@ -35,7 +35,7 @@ const Footer = () => {
         <div className="my-4 flex flex-col items-center justify-center">
           <div className="font-semibold text-xl">Support</div>
           <div className="mt-2">
-            <a href="mailto:outreach.parsec@iitdh.ac.in">Sponsor Parsec 6.0</a>
+            <a href="mailto:support.parsec@iitdh.ac.in">Sponsor Parsec 6.0</a>
           </div>
           {/* <div className="mt-2">
             <a href="mailto:gstech@iitdh.ac.in">gstech@iitdh.ac.in</a>
@@ -67,7 +67,7 @@ const Footer = () => {
             <a
               className="ml-4 text-xl"
               target="_blank"
-              href="https://www.instagram.com/technical.council_iitdh/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA%3D%3D"
+              href="https://www.instagram.com/parsec.iitdh"
               rel="noreferrer"
             >
               <span className="text-white cursor-pointer">
