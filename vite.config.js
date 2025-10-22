@@ -10,6 +10,11 @@ export default defineConfig({
         assetsDir: 'assets',
         emptyOutDir: true,
     },
+  server: { 
+    allowedHosts: [
+      'parsec.iitdh.ac.in',
+    ]
+  }
 })
 
 // import { defineConfig } from 'vite';
