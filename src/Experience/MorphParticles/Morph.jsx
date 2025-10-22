@@ -1,4 +1,4 @@
-import { useEffect, useRef, useMemo } from "react"
+import { useEffect, useRef, useMemo, useState } from "react"
 import * as THREE from "three"
 import { useGLTF } from "@react-three/drei"
 import { R3FPointsFX } from "r3f-points-fx"
@@ -7,9 +7,10 @@ import GSAP from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import vertFunctions from "./shaders/morphVertFunctions.glsl"
 import fragFunctions from "./shaders/morphFragFunctions.glsl"
+import PropTypes from "prop-types"
 
 GSAP.registerPlugin(ScrollTrigger)
-function Morph() {
+function Morph({ startWithRocket, onInitialMorphComplete }) {
   const rocketMesh = useGLTF("/Models/rocket.glb").nodes["Rocket"]
   const earthMesh = useGLTF("/Models/earth.glb").nodes["earth"]
   const logoMesh = useGLTF("/Models/iitdhLogo.glb").nodes["path12"]
@@ -25,6 +26,7 @@ function Morph() {
   const localRef = useRef()
   const globalRef = useRef()
   const rotateMesh = useRef(true)
+  const [hasCompletedInitialMorph, setHasCompletedInitialMorph] = useState(false)
 
   //Set Custom Attributes
   const generateRandomnArray = (size) => {
@@ -59,6 +61,53 @@ function Morph() {
       new THREE.Vector3(0, 0, 0),
     ])
   }, [])
+
+  // Initial loader morph: Rocket -> Earth
+  useEffect(() => {
+    if (startWithRocket && morphRef.current && globalRef.current && !hasCompletedInitialMorph) {
+      // Start with rocket (model index 1)
+      morphRef.current.setModelA(1)
+      morphRef.current.setModelB(0) // Target is earth
+      
+      // Start with large scale
+      globalRef.current.scale.set(1.2, 1.2, 1.2)
+      
+      // Wait a bit before starting the morph
+      setTimeout(() => {
+        if (!morphRef.current || !globalRef.current) return
+        
+        // Animate morph progress
+        GSAP.to({ progress: 0 }, {
+          progress: 1,
+          duration: 2.5,
+          ease: "power2.inOut",
+          onUpdate: function() {
+            if (morphRef.current) {
+              morphRef.current.updateProgress(this.targets()[0].progress)
+            }
+          },
+          onComplete: () => {
+            if (morphRef.current) {
+              morphRef.current.setModelA(0) // Now showing earth
+            }
+            setHasCompletedInitialMorph(true)
+            if (onInitialMorphComplete) {
+              onInitialMorphComplete()
+            }
+          }
+        })
+        
+        // Shrink from large to normal size during morph
+        GSAP.to(globalRef.current.scale, {
+          x: 1,
+          y: 1,
+          z: 1,
+          duration: 2.5,
+          ease: "power2.inOut"
+        })
+      }, 100)
+    }
+  }, [startWithRocket, hasCompletedInitialMorph, onInitialMorphComplete])
 
   //particles transition timelines
   //first
@@ -280,13 +329,14 @@ function Morph() {
   }, [])
 
   useFrame((state, delta) => {
-    if (morphRef.current && rotateMesh.current === true) {
-      morphRef.current.updateTime(state.clock.elapsedTime)
-      const mesh = morphRef.current.getPointsMesh()
-      mesh.rotation.y = state.clock.elapsedTime * 0.1
-    }
     if (morphRef.current) {
       morphRef.current.updateTime(state.clock.elapsedTime)
+      
+      // Rotate during initial loader display or normal scrolling
+      if (rotateMesh.current === true || (startWithRocket && !hasCompletedInitialMorph)) {
+        const mesh = morphRef.current.getPointsMesh()
+        mesh.rotation.y = state.clock.elapsedTime * 0.1
+      }
     }
   })
 
@@ -325,6 +375,12 @@ function Morph() {
     </>
   )
 }
+
+Morph.propTypes = {
+  startWithRocket: PropTypes.bool,
+  onInitialMorphComplete: PropTypes.func,
+}
+
 useGLTF.preload("/Models/rocket.glb")
 useGLTF.preload("/Models/earth.glb")
 useGLTF.preload("Models/iitdhLogo.glb")

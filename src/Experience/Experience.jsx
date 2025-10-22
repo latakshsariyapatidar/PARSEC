@@ -5,7 +5,7 @@ import { Effects } from "./Effects/Effects"
 import * as THREE from "three"
 import PropTypes from "prop-types"
 
-export default function Experience({ current }) {
+export default function Experience({ current, startWithRocket, onInitialMorphComplete }) {
   return (
     <>
       <Canvas
@@ -18,7 +18,11 @@ export default function Experience({ current }) {
         dpr={[1, 2]}
       >
         <Camera />
-        <Scene currentMesh={current} />
+        <Scene 
+          currentMesh={current} 
+          startWithRocket={startWithRocket}
+          onInitialMorphComplete={onInitialMorphComplete}
+        />
         <color args={["#000006"]} attach="background" />
         <Effects />
       </Canvas>
@@ -27,5 +31,7 @@ export default function Experience({ current }) {
 }
 
 Experience.propTypes = {
-  current: PropTypes.string
+  current: PropTypes.string,
+  startWithRocket: PropTypes.bool,
+  onInitialMorphComplete: PropTypes.func,
 }

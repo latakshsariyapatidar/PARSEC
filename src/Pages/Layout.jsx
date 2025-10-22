@@ -4,8 +4,9 @@ import { Outlet } from "react-router-dom"
 import Appbar from "../Components/Appbar/Appbar"
 import Footer from "../Components/Footer/Footer"
 import useLenis from "../Helpers/lenis"
+import PropTypes from "prop-types"
 
-function Layout() {
+function Layout({ startWithRocket, onInitialMorphComplete, showContent }) {
   const location = useLocation()
 
   // Get the name of the active route's component
@@ -19,9 +20,18 @@ function Layout() {
   return (
     <>
       <div className="experience">
-        <Experience current={getRouteName()} />
+        <Experience 
+          current={getRouteName()} 
+          startWithRocket={startWithRocket}
+          onInitialMorphComplete={onInitialMorphComplete}
+        />
       </div>
-      <div id="main-content">
+      <div 
+        id="main-content"
+        className={`transition-opacity duration-1000 ${
+          showContent ? "opacity-100" : "opacity-0"
+        }`}
+      >
         <Appbar current={getRouteName()} />
         <div>
           <div>
@@ -32,6 +42,12 @@ function Layout() {
       </div>
     </>
   )
+}
+
+Layout.propTypes = {
+  startWithRocket: PropTypes.bool,
+  onInitialMorphComplete: PropTypes.func,
+  showContent: PropTypes.bool,
 }
 
 export default Layout

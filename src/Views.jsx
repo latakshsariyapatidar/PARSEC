@@ -9,10 +9,12 @@ import FormPage from "./Pages/Forms/Form"
 import Schedule from "./Pages/Schedule/Schedule"
 import AlertPage from '../src/Components/AlertPage'
 import ProtectedRoute from './middleware/ProtectedRoute';
-const Views = () => {
+import PropTypes from "prop-types"
+
+const Views = ({ startWithRocket, onInitialMorphComplete, showContent }) => {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path="/" element={<Layout startWithRocket={startWithRocket} onInitialMorphComplete={onInitialMorphComplete} showContent={showContent} />}>
         <Route path="home" element={<Home />} />
         <Route path="events" element={<Events />} />
         <Route path="schedule" element={<Schedule />} />
@@ -20,18 +22,24 @@ const Views = () => {
         <Route path="cultural" element={<Cultural />} />
         <Route path="login" element={<LoginSignupPage/>}/>
         <Route path="forms" element={<FormPage/>}/>
-		<Route 
-		          path="alert" 
-		          element={
-		            <ProtectedRoute>
-		              <AlertPage />
-		            </ProtectedRoute>
-		          } 
-		        />
+        <Route 
+          path="alert" 
+          element={
+            <ProtectedRoute>
+              <AlertPage />
+            </ProtectedRoute>
+          } 
+        />
       </Route>
       <Route index element={<Navigate to="/home" replace />} />
     </Routes>
   )
+}
+
+Views.propTypes = {
+  startWithRocket: PropTypes.bool,
+  onInitialMorphComplete: PropTypes.func,
+  showContent: PropTypes.bool,
 }
 
 export default Views
